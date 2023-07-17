@@ -452,6 +452,10 @@ private extension AuthenticationOperation
             {
                 return completionHandler(.success(team))
             }
+            else if let team = teams.first(where: { $0.type == .organization })
+            {
+                return completionHandler(.success(team))
+            }
             else if let team = teams.first(where: { $0.type == .free })
             {
                 return completionHandler(.success(team))
